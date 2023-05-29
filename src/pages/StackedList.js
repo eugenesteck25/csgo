@@ -6,11 +6,18 @@ import './PagesCSS.css';
 function StackedList() {
   return (
     <div>
-        <SideBar/>
-        <div className='StackedList'>
-            <StackedListAlgo/>
-        </div>
+      <SideBar />
+      <div className='StackedList'>
+        <StackedListAlgo />
+      </div>
+      <div className='CodeView'>
+
+      </div>
+      <div className='description'>
+        <h1>description </h1>
+      </div>
     </div>
+
   )
 }
 
