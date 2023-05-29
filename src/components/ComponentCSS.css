@@ -1,0 +1,69 @@
+/* Homepage CSS*/
+body {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right, red 0%, yellow 50%, blue 100%);
+}
+.buttonplace{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.go-to{
+    background-color: aqua;
+}
+
+/* SideMenu CSS */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    bottom: 0;
+    width: 240px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  .sidebar-header h3 {
+    margin: 0;
+  }
+  
+  .toggle-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .sub-menu.open{
+    display: block;
+  }
+  .sub-menu-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .sub-menu {
+    display: none;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #ddd;
+  }
+  

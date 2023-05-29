@@ -1,0 +1,162 @@
+/* Stacked List*/
+
+.StackedListVisualizer {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.notice-container {
+	height: 20px;
+}
+
+.stacked-container {
+	position: absolute;
+	background-color: white;
+	align-items: center;
+	display: flex;
+	height: 500px;
+	width: 600px;
+}
+
+.stacked-line {
+	background-color: black;
+	width: 25px;
+	height: 10px;
+	position: relative;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.stacked-circle {
+	border-radius: 50%;
+	background-color: #282c34;
+	text-align: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	margin: 0 1px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.StackedListVisualizer h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.StackedListVisualizer input[type="text"] {
+	padding: 8px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.StackedListVisualizer button {
+	padding: 8px 12px;
+	font-size: 16px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.StackedListVisualizer button:hover {
+	background-color: #45a049;
+}
+
+.StackedListVisualizer ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 20px;
+}
+
+.StackedListVisualizer li {
+	padding: 8px;
+	font-size: 16px;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ddd;
+	animation: fadeIn 0.5s ease-in-out;
+}
+
+.StackedListVisualizer li:last-child {
+	border-bottom: none;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Queue */
+
+.queue-visualizer {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.queue-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.queue {
+	display: flex;
+	flex-direction: row;
+}
+
+.queue-item {
+	width: 50px;
+	height: 50px;
+	background-color: #ccc;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.queue-controls {
+	margin-top: 20px;
+}
+
+/* Sorting*/
+.array-container {
+	display: inline-block;
+	height: 500px;
+	background-color: #282c34;
+	position: absolute;
+	right: 50vh;
+	padding: 20px;
+	/* top: 100px; */
+}
+
+.controls-container {
+	position: relative;
+	display: inline-block;
+
+}
+
+.array-bar {
+	flex: 1;
+	margin: 0 1px;
+
+}
+
+.array-input {
+	width: 315px;
+}
+
+.bar-container {
+	align-items: flex-end;
+	display: flex;
+	height: 300px;
+	width: 660px;
+	padding: 2px;
+	background-color: white;
+}

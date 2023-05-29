@@ -1,0 +1,7 @@
+/*control css*/
+.control-container{
+	flex-direction: column;
+	position: absolute;
+    left: 50%;
+    
+}
