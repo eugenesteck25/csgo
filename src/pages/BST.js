@@ -5,10 +5,16 @@ import BSTVisualizer from './Algorithms/BSTVisualizer'
 function BST() {
   return (
     <div>
-        <SideBar/>
-        <div>
-            <BSTVisualizer/>
-        </div>
+      <SideBar />
+      <div>
+        <BSTVisualizer />
+      </div>
+      <div className='CodeView'>
+
+      </div>
+      <div className='description'>
+        <h1>description </h1>
+      </div>
     </div>
   )
 }
