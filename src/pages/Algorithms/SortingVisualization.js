@@ -3,7 +3,7 @@ import { getMergeSortAnimations, getQuickSortAnimations } from './SortingAlgorit
 import './Visualizer.css';
 
 // Change this value for the speed of the animations.
-const DEFAULT_ANIMATION_SPEED = 100;
+const DEFAULT_ANIMATION_SPEED = 300;
 
 // Change this value for the number of bars (value) in the array.
 const NUMBER_OF_ARRAY_BARS = 30;
@@ -87,7 +87,7 @@ export default class SortingVisualization extends React.Component {
           const barOneStyle = arrayBars[barOneIdx].style;
 
           // Add swap animation
-          barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
+          barOneStyle.transition = `height ${50}ms ease-in-out`;
           barOneStyle.height = `${newHeight}px`;
 
           // Add value inside the bar
@@ -103,7 +103,7 @@ export default class SortingVisualization extends React.Component {
     const animations = [];
     getQuickSortAnimations(array, 0, array.length - 1, animations);
 
-    const speed = this.state.animationSpeed;
+    const animationSpeed = this.state.animationSpeed;
     const bars = document.getElementsByClassName('array-bar');
 
     for (let i = 0; i < animations.length; i++) {
@@ -112,9 +112,11 @@ export default class SortingVisualization extends React.Component {
       const barTwoStyle = bars[barTwoIdx].style;
 
       setTimeout(() => {
-        barOneStyle.transition = `height ${speed}ms ease-in-out`;
         const valueElement1 = bars[barOneIdx].querySelector('.value');
         const valueElement2 = bars[barTwoIdx].querySelector('.value');
+
+        barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
+        barTwoStyle.transition = `height ${animationSpeed}ms ease-in-out`;
 
         valueElement1.innerText = newArray[barOneIdx];
         valueElement2.innerText = newArray[barTwoIdx];
@@ -122,7 +124,7 @@ export default class SortingVisualization extends React.Component {
         barOneStyle.height = `${newArray[barOneIdx]}px`;
         barTwoStyle.height = `${newArray[barTwoIdx]}px`;
 
-      }, i * speed);
+      }, i * animationSpeed);
 
     }
   }
@@ -171,40 +173,40 @@ export default class SortingVisualization extends React.Component {
 
               <input
                 type="radio"
-                value="150"
-                checked={animationSpeed === 150}
+                value="400"
+                checked={animationSpeed === 400}
                 onChange={this.handleSpeedChange}
               />
               1x
 
               <input
                 type="radio"
-                value="125"
-                checked={animationSpeed === 125}
+                value="350"
+                checked={animationSpeed === 350}
                 onChange={this.handleSpeedChange}
               />
               2x
 
               <input
                 type="radio"
-                value="100"
-                checked={animationSpeed === 100}
+                value="300"
+                checked={animationSpeed === 300}
                 onChange={this.handleSpeedChange}
               />
               3x
 
               <input
                 type="radio"
-                value="75"
-                checked={animationSpeed === 75}
+                value="250"
+                checked={animationSpeed === 250}
                 onChange={this.handleSpeedChange}
               />
               4x
 
               <input
                 type="radio"
-                value="50"
-                checked={animationSpeed === 50}
+                value="200"
+                checked={animationSpeed === 200}
                 onChange={this.handleSpeedChange}
               />
               5x
