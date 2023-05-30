@@ -78,23 +78,46 @@ function doMerge(
 
 
 
-export function getQuickSortAnimations(array) {
+// export function getQuickSortAnimations(array) {
+//   const animations = [];
+//   if (array.length <= 1) return animations;
+//   quickSortHelper(array, 0, array.length - 1, animations);
+//   return animations;
+// }
+
+export function getQuickSortAnimations(array, startIdx, endIdx, animations) {
+  if (startIdx >= endIdx) return;
+  const pivotIdx = startIdx;
+  let leftIdx = startIdx + 1;
+  let rightIdx = endIdx;
+  while (rightIdx >= leftIdx) {
+    if (array[leftIdx] > array[pivotIdx] && array[rightIdx] < array[pivotIdx]) {
+      swap(leftIdx, rightIdx, array);
+      animations.push([leftIdx, rightIdx, array.slice()]);
+    }
+    if (array[leftIdx] <= array[pivotIdx]) leftIdx++;
+    if (array[rightIdx] >= array[pivotIdx]) rightIdx--;
+  }
+  swap(pivotIdx, rightIdx, array);
+  animations.push([pivotIdx, rightIdx, array.slice()]);
+  const leftSubarrayIsSmaller = rightIdx - 1 - startIdx < endIdx - (rightIdx + 1);
+  if (leftSubarrayIsSmaller) {
+    getQuickSortAnimations(array, startIdx, rightIdx - 1, animations);
+    getQuickSortAnimations(array, rightIdx + 1, endIdx, animations);
+  } else {
+    getQuickSortAnimations(array, rightIdx + 1, endIdx, animations);
+    getQuickSortAnimations(array, startIdx, rightIdx - 1, animations);
+  }
 
 }
+function swap(i, j, array) {
+  const temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+}
+
+
 
 export function getBubbleSortAnimation(array) {
-  const animation = []
 
-
-  function bubbleSort() {
-    for (let i = 0; i < array.length - 1; i++) {
-      for (let j = 0; j < array.length - i - 1; j++) {
-        if (array[j] > array[j + 1]) {
-          const temp = array[j];
-          array[j] = array[j + 1];
-          array[j + 1] = temp;
-        }
-      }
-    }
-  }
 }

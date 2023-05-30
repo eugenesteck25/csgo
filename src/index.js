@@ -15,6 +15,7 @@ import AVLTree from './pages/AVLTree';
 import Sorting from './pages/Sorting';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
     path: "AVLTree",
     element: <AVLTree />
   },
+
 
 ]);
 
