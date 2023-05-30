@@ -99,39 +99,38 @@ export default class SortingVisualization extends React.Component {
   }
 
   quickSort() {
-    const animations = getQuickSortAnimations(this.state.array);
-    const animationSpeed = this.state.animationSpeed;
+    const { array } = this.state;
+    const animations = [];
+    getQuickSortAnimations(array, 0, array.length - 1, animations);
+
+    const speed = this.state.animationSpeed;
+    const bars = document.getElementsByClassName('array-bar');
 
     for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = i % 3 !== 2;
+      const [barOneIdx, barTwoIdx, newArray] = animations[i];
+      const barOneStyle = bars[barOneIdx].style;
+      const barTwoStyle = bars[barTwoIdx].style;
 
-      if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+      setTimeout(() => {
+        barOneStyle.transition = `height ${speed}ms ease-in-out`;
+        const valueElement1 = bars[barOneIdx].querySelector('.value');
+        const valueElement2 = bars[barTwoIdx].querySelector('.value');
 
-        setTimeout(() => {
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
-        }, i * animationSpeed);
-      } else {
-        setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
+        valueElement1.innerText = newArray[barOneIdx];
+        valueElement2.innerText = newArray[barTwoIdx];
 
-          // Add swap animation
-          barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
-          barOneStyle.height = `${newHeight}px`;
+        barOneStyle.height = `${newArray[barOneIdx]}px`;
+        barTwoStyle.height = `${newArray[barTwoIdx]}px`;
 
-          // Add value inside the bar
-          const valueElement = arrayBars[barOneIdx].querySelector('.value');
-          valueElement.innerText = newHeight;
-        }, i * animationSpeed);
-      }
+      }, i * speed);
+
     }
   }
+
+
+
+
+
 
   heapSort() {
 
