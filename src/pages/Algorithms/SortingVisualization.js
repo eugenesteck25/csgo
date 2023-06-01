@@ -3,6 +3,7 @@ import {
   getMergeSortAnimations,
   getQuickSortAnimations,
   getBubbleSortAnimations,
+  getHeapSortAnimations
 } from './SortingAlgorithm';
 import './Visualizer.css';
 
@@ -12,32 +13,31 @@ const DEFAULT_ANIMATION_SPEED = 300;
 // Change this value for the number of bars (value) in the array.
 const NUMBER_OF_ARRAY_BARS = 20;
 const barWidth = 660;
+
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
 
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'red';
 
-
 export default class SortingVisualization extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       array: [],
       userInput: '',
       animationSpeed: DEFAULT_ANIMATION_SPEED,
       widthCalculate: NUMBER_OF_ARRAY_BARS,
     };
+
     this.handleSpeedChange = this.handleSpeedChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputSubmit = this.handleInputSubmit.bind(this);
   }
 
   handleInputChange(event) {
     this.setState({ userInput: event.target.value });
   }
-
-
 
   handleInputSubmit(event) {
     event.preventDefault();
@@ -46,7 +46,6 @@ export default class SortingVisualization extends React.Component {
     const array = inputArray.filter((value) => !isNaN(value));
     const NUMBER_OF_ARRAY_BARS = array.length;
     const widthCalculate = NUMBER_OF_ARRAY_BARS;
-
     this.setState({ array, widthCalculate });
   }
 
@@ -70,11 +69,9 @@ export default class SortingVisualization extends React.Component {
   mergeSort() {
     const animations = getMergeSortAnimations(this.state.array);
     const animationSpeed = this.state.animationSpeed;
-
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName('array-bar');
       const isColorChange = i % 3 !== 2;
-
 
       if (isColorChange) {
         const [barOneIdx, barTwoIdx] = animations[i];
@@ -107,7 +104,6 @@ export default class SortingVisualization extends React.Component {
     const { array } = this.state;
     const animations = [];
     getQuickSortAnimations(array, 0, array.length - 1, animations);
-
     const animationSpeed = this.state.animationSpeed;
     const bars = document.getElementsByClassName('array-bar');
 
@@ -125,22 +121,36 @@ export default class SortingVisualization extends React.Component {
 
         valueElement1.innerText = newArray[barOneIdx];
         valueElement2.innerText = newArray[barTwoIdx];
-
         barOneStyle.height = `${newArray[barOneIdx]}px`;
         barTwoStyle.height = `${newArray[barTwoIdx]}px`;
-
       }, i * animationSpeed);
-
     }
   }
 
-
-
-
-
-
   heapSort() {
+    const { array } = this.state;
+    const animations = getHeapSortAnimations(array);
+    const animationSpeed = this.state.animationSpeed;
+    const bars = document.getElementsByClassName('array-bar');
 
+    for (let i = 0; i < animations.length; i++) {
+      const [barOneIdx, barTwoIdx] = animations[i];
+      const barOneStyle = bars[barOneIdx].style;
+      const barTwoStyle = bars[barTwoIdx].style;
+
+      setTimeout(() => {
+        const valueElement1 = bars[barOneIdx].querySelector('.value');
+        const valueElement2 = bars[barTwoIdx].querySelector('.value');
+
+        barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
+        barTwoStyle.transition = `height ${animationSpeed}ms ease-in-out`;
+
+        valueElement1.innerText = array[barOneIdx];
+        valueElement2.innerText = array[barTwoIdx];
+        barOneStyle.height = `${array[barOneIdx]}px`;
+        barTwoStyle.height = `${array[barTwoIdx]}px`;
+      }, i * animationSpeed);
+    }
   }
 
   bubbleSort() {
@@ -153,28 +163,21 @@ export default class SortingVisualization extends React.Component {
       const [barOneIdx, barTwoIdx, newArray] = animations[i];
       const barOneStyle = bars[barOneIdx].style;
       const barTwoStyle = bars[barTwoIdx].style;
-
       const isColorChange = i === null;
       const color = i % 4 === 0 || i % 4 === 1 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
       if (isColorChange) {
-
         setTimeout(() => {
-          // barOneStyle.backgroundColor = color;
-          // barTwoStyle.backgroundColor = color;
-
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
         }, i * animationSpeed);
-
-
       } else {
-
         setTimeout(() => {
-          // barOneStyle.backgroundColor = color;
-          // barTwoStyle.backgroundColor = color;
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
 
           const valueElement1 = bars[barOneIdx].querySelector('.value');
           const valueElement2 = bars[barTwoIdx].querySelector('.value');
-
           barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
           barTwoStyle.transition = `height ${animationSpeed}ms ease-in-out`;
 
@@ -182,20 +185,14 @@ export default class SortingVisualization extends React.Component {
             if (newArray) {
               valueElement1.innerText = newArray[barOneIdx];
               valueElement2.innerText = newArray[barTwoIdx];
-
               barOneStyle.height = `${newArray[barOneIdx]}px`;
               barTwoStyle.height = `${newArray[barTwoIdx]}px`;
-
             }
           }, animationSpeed);
-
         }, i * animationSpeed);
-
       }
     }
   }
-
-
 
   render() {
     const { array, userInput, animationSpeed, widthCalculate } = this.state;
@@ -204,18 +201,10 @@ export default class SortingVisualization extends React.Component {
       <div className="array-container">
         <div className='controls-container'>
           <form onSubmit={(event) => this.handleInputSubmit(event)}>
-            <input
-              className='array-input'
-              type="text"
-              value={userInput}
-              onChange={(event) => this.handleInputChange(event)}
-              placeholder="Enter atleast 5 numbers separated by commas"
-            />
-            <br />
+            <input className='array-input' type="text" value={userInput} onChange={(event) => this.handleInputChange(event)} placeholder="Enter at least 5 numbers separated by commas" /><br />
             <button type="submit">Submit</button>
           </form>
-          <button onClick={() => this.resetArray()}>Randomize Array</button>
-          <br />
+          <button onClick={() => this.resetArray()}>Randomize Array</button><br />
           <button onClick={() => this.mergeSort()}>Merge Sort</button>
           <button onClick={() => this.quickSort()}>Quick Sort</button>
           <button onClick={() => this.heapSort()}>Heap Sort</button>
@@ -223,46 +212,11 @@ export default class SortingVisualization extends React.Component {
           <form>
             <label className='speed-change'>
               Animation Speed:
-
-              <input
-                type="radio"
-                value="400"
-                checked={animationSpeed === 400}
-                onChange={this.handleSpeedChange}
-              />
-              1x
-
-              <input
-                type="radio"
-                value="350"
-                checked={animationSpeed === 350}
-                onChange={this.handleSpeedChange}
-              />
-              2x
-
-              <input
-                type="radio"
-                value="300"
-                checked={animationSpeed === 300}
-                onChange={this.handleSpeedChange}
-              />
-              3x
-
-              <input
-                type="radio"
-                value="250"
-                checked={animationSpeed === 250}
-                onChange={this.handleSpeedChange}
-              />
-              4x
-
-              <input
-                type="radio"
-                value="200"
-                checked={animationSpeed === 200}
-                onChange={this.handleSpeedChange}
-              />
-              5x
+              <input type="radio" value="400" checked={animationSpeed === 400} onChange={this.handleSpeedChange} /> 1x
+              <input type="radio" value="350" checked={animationSpeed === 350} onChange={this.handleSpeedChange} /> 2x
+              <input type="radio" value="300" checked={animationSpeed === 300} onChange={this.handleSpeedChange} /> 3x
+              <input type="radio" value="250" checked={animationSpeed === 250} onChange={this.handleSpeedChange} /> 4x
+              <input type="radio" value="200" checked={animationSpeed === 200} onChange={this.handleSpeedChange} /> 5x
             </label>
           </form>
         </div>
@@ -275,7 +229,6 @@ export default class SortingVisualization extends React.Component {
                 backgroundColor: PRIMARY_COLOR,
                 height: `${value}px`,
                 width: `${barWidth / widthCalculate}px`,
-
               }}
             >
               <div className="value">{value}</div>
@@ -287,8 +240,6 @@ export default class SortingVisualization extends React.Component {
   }
 }
 
-
 function randomIntFromInterval(min, max) {
-  // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
