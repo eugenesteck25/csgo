@@ -118,6 +118,39 @@ function swap(i, j, array) {
 
 
 
-export function getBubbleSortAnimation(array) {
+export function getBubbleSortAnimations(array) {
+  const animations = [];
+  if (array.length <= 1) return animations;
+  let isSorted = false;
+  let counter = 0;
+  while (!isSorted) {
+    isSorted = true;
+    for (let i = 0; i < array.length - 1 - counter; i++) {
+      animations.push([i, i + 1]); // Push the indices of the two elements being compared
+      if (array[i] > array[i + 1]) {
+        swap(i, i + 1, array);
+        isSorted = false;
+        animations.push([i, i + 1, array.slice()]); // Push the swapped elements
+      } else {
+        animations.push([i, i + 1, null]); // Push null to skip over the swapped elements
+      }
+    }
+    counter++;
+  }
+  return animations;
+}
+
+export function getHeapSortAnimations(array) {
+  const animations = [];
+  heapSort(array, animations);
+  return animations;
+}
+
+function heapSort(array, animations) {
+  const n = array.length;
+
+  // Build heap (rearrange array)
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--)
+    heapify(array, n, i, animations);
 
 }

@@ -1,12 +1,16 @@
 import React from 'react';
-import { getMergeSortAnimations, getQuickSortAnimations } from './SortingAlgorithm';
+import {
+  getMergeSortAnimations,
+  getQuickSortAnimations,
+  getBubbleSortAnimations,
+} from './SortingAlgorithm';
 import './Visualizer.css';
 
 // Change this value for the speed of the animations.
 const DEFAULT_ANIMATION_SPEED = 300;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 30;
+const NUMBER_OF_ARRAY_BARS = 20;
 const barWidth = 660;
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -70,6 +74,7 @@ export default class SortingVisualization extends React.Component {
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName('array-bar');
       const isColorChange = i % 3 !== 2;
+
 
       if (isColorChange) {
         const [barOneIdx, barTwoIdx] = animations[i];
@@ -139,7 +144,55 @@ export default class SortingVisualization extends React.Component {
   }
 
   bubbleSort() {
+    const { array } = this.state;
+    const animations = getBubbleSortAnimations(array);
+    const animationSpeed = this.state.animationSpeed;
+    const bars = document.getElementsByClassName('array-bar');
 
+    for (let i = 0; i < animations.length; i++) {
+      const [barOneIdx, barTwoIdx, newArray] = animations[i];
+      const barOneStyle = bars[barOneIdx].style;
+      const barTwoStyle = bars[barTwoIdx].style;
+
+      const isColorChange = i === null;
+      const color = i % 4 === 0 || i % 4 === 1 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+      if (isColorChange) {
+
+        setTimeout(() => {
+          // barOneStyle.backgroundColor = color;
+          // barTwoStyle.backgroundColor = color;
+
+        }, i * animationSpeed);
+
+
+      } else {
+
+        setTimeout(() => {
+          // barOneStyle.backgroundColor = color;
+          // barTwoStyle.backgroundColor = color;
+
+          const valueElement1 = bars[barOneIdx].querySelector('.value');
+          const valueElement2 = bars[barTwoIdx].querySelector('.value');
+
+          barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
+          barTwoStyle.transition = `height ${animationSpeed}ms ease-in-out`;
+
+          setTimeout(() => {
+            if (newArray) {
+              valueElement1.innerText = newArray[barOneIdx];
+              valueElement2.innerText = newArray[barTwoIdx];
+
+              barOneStyle.height = `${newArray[barOneIdx]}px`;
+              barTwoStyle.height = `${newArray[barTwoIdx]}px`;
+
+            }
+          }, animationSpeed);
+
+        }, i * animationSpeed);
+
+      }
+    }
   }
 
 
