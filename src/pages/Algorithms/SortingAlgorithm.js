@@ -118,7 +118,7 @@ function swap(i, j, array) {
 
 
 
-export function getBubbleSortAnimation(array) {
+export function getBubbleSortAnimations(array) {
   const animations = [];
   if (array.length <= 1) return animations;
   let isSorted = false;
@@ -139,6 +139,7 @@ export function getBubbleSortAnimation(array) {
   }
   return animations;
 }
+
 export function getHeapSortAnimations(array) {
   const animations = [];
   heapSort(array, animations);
@@ -185,4 +186,62 @@ function heapify(array, n, i, animations) {
     // Recursively heapify the affected sub-tree
     heapify(array, n, largest, animations);
   }
+}
+
+export function getSelectionSortAnimations(array) {
+  const animations = [];
+  const n = array.length;
+
+  for (let i = 0; i < n - 1; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j < n; j++) {
+      // Push animation to highlight the bars being compared
+      animations.push([j, minIndex, null, null]);
+
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    // Push animation to swap the values at the minimum index and current index
+    animations.push([i, minIndex, array[i], array[minIndex]]);
+    const temp = array[i];
+    array[i] = array[minIndex];
+    array[minIndex] = temp;
+  }
+
+  return animations;
+}
+
+export function getInsertionSortAnimations(array) {
+  const animations = [];
+  const n = array.length;
+
+  for (let i = 1; i < n; i++) {
+    const key = array[i];
+    let j = i - 1;
+
+    // Compare key with previous elements
+    while (j >= 0 && array[j] > key) {
+      // Store the indices of elements being compared for animation
+      animations.push([j, j + 1]);
+
+      // Swap the elements
+      array[j + 1] = array[j];
+
+      // Store the new height values for animation
+      animations.push([j + 1, array[j]]);
+
+      j--;
+    }
+
+    // Place the key in the correct position
+    array[j + 1] = key;
+
+    // Store the new height value for animation
+    animations.push([j + 1, key]);
+  }
+
+  return animations;
 }
