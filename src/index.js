@@ -20,7 +20,7 @@ import LinearSearch from './pages/LinearSearch';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "csgo",
     element: <App />,
   },
   {
