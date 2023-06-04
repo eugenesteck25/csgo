@@ -37,7 +37,7 @@ const SideBar = () => {
     return (
         <div className={`sidebar ${SideBar ? 'open' : ''}`}>
             <div className="sidebar-header" >
-                <h3><Link to='/'>CS GO!</Link></h3>
+                <h3><Link to='csgo'>CS GO!</Link></h3>
                 <button className="toggle-button" onClick={handleSidebarToggle}>
                     ☰
                 </button>
