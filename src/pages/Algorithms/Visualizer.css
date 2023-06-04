@@ -1,23 +1,72 @@
-/* Stacked List*/
-
-.StackedListVisualizer {
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 20px;
-	text-align: center;
+.container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
 }
+
+.circle {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #ccc;
+	margin: 0 5px;
+}
+
+.linked-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.list-item {
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.list-item-enter {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+
+.list-item-enter-active {
+	opacity: 1;
+	transform: translateX(0%);
+}
+
+.list-item-exit {
+	opacity: 1;
+	transform: translateX(0%);
+}
+
+.list-item-exit-active {
+	opacity: 0;
+	transform: translateX(100%);
+}
+
+/* Stacked List*/
+.stacked-list-algo-body {
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border-style: dotted;
+	border-color: red;
+	margin: auto;
+}
+
 
 .notice-container {
 	height: 20px;
 }
 
 .stacked-container {
-	position: absolute;
+	position: relative;
 	background-color: white;
+	justify-content: center;
 	align-items: center;
 	display: flex;
-	height: 500px;
+	height: 400px;
 	width: 600px;
+	margin: auto;
+
+
 }
 
 .stacked-line {
@@ -27,6 +76,8 @@
 	position: relative;
 	margin-top: auto;
 	margin-bottom: auto;
+
+
 }
 
 .stacked-circle {
@@ -39,90 +90,85 @@
 	margin: 0 1px;
 	margin-top: auto;
 	margin-bottom: auto;
+
 }
 
-.StackedListVisualizer h2 {
-	font-size: 24px;
-	margin-bottom: 20px;
-}
-
-.StackedListVisualizer input[type="text"] {
-	padding: 8px;
-	margin-right: 10px;
-	font-size: 16px;
-}
-
-.StackedListVisualizer button {
-	padding: 8px 12px;
-	font-size: 16px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	cursor: pointer;
-}
-
-.StackedListVisualizer button:hover {
-	background-color: #45a049;
-}
-
-.StackedListVisualizer ul {
-	list-style: none;
-	padding: 0;
-	margin-top: 20px;
-}
-
-.StackedListVisualizer li {
-	padding: 8px;
-	font-size: 16px;
-	background-color: #f2f2f2;
-	border-bottom: 1px solid #ddd;
-	animation: fadeIn 0.5s ease-in-out;
-}
-
-.StackedListVisualizer li:last-child {
-	border-bottom: none;
-}
-
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
 
 /* Queue */
 
 .queue-visualizer {
+	align-items: center;
+	justify-content: center;
 	text-align: center;
 	margin-top: 50px;
+	border-style: dotted;
+	border-color: red;
+	margin: auto;
+	width: 650px;
 }
 
-.queue-container {
+.queue-controls {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 1rem;
+}
+
+queue-controls input[type="text"] {
+	margin-right: 1rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+
+.queue-container {
+	height: 200px;
+	background-color: white;
 }
 
 .queue {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 1rem;
+
 }
 
 .queue-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 1rem;
+}
+
+.queue-item-box {
+	background-color: #e3e3e3;
 	width: 50px;
 	height: 50px;
-	background-color: #ccc;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: 10px;
+	font-size: 1.5rem;
+	font-weight: bold;
 }
 
-.queue-controls {
-	margin-top: 20px;
+.queue-item-index {
+	margin-top: 0.5rem;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.queue-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+}
+
+.queue-header-item {
+	margin-right: 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
 }
 
 /* Sorting*/
@@ -159,4 +205,87 @@
 	width: 660px;
 	padding: 2px;
 	background-color: white;
+}
+
+/* Binary Search */
+
+.BSA-body {
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border-style: dotted;
+	border-color: red;
+	margin: auto;
+
+}
+
+.BSA-array-container {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	height: 200px;
+	width: 550px;
+}
+
+.BSA-array {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: solid;
+	border-width: 2px;
+	flex: 1;
+	margin: 0 1px;
+
+}
+
+.BSA-array-index {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.LSA-body {
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border-style: dotted;
+	border-color: red;
+	margin: auto;
+
+}
+
+.LSA-array-container {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	height: 200px;
+	width: 500px;
+}
+
+.LSA-array {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: solid;
+	border-width: 2px;
+	flex: 1;
+	margin: 0 1px;
+
+}
+
+.LSA-array-index {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.LSA-pseudocode {
+	font-size: 18px;
+	margin: 20px 0;
+	text-align: left;
+}
+
+.LSA-current-line {
+	background-color: #FFFF99;
+	font-weight: bold;
 }

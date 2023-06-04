@@ -59,9 +59,8 @@ const SideBar = () => {
                                 Indexing
                             </button>
                             <ul className={`sub-menu ${isSubMenu2Open ? 'open' : ''}`}>
-                                <li>Sub Menu Item 2.1</li>
-                                <li>Sub Menu Item 2.2</li>
-                                <li>Sub Menu Item 2.3</li>
+                                <li><Link to="/BinarySearch">Binary Search</Link></li>
+                                <li><Link to="/LinearSearch">Linear Search</Link></li>
                             </ul>
                         </li>
                         <li>
@@ -81,11 +80,11 @@ const SideBar = () => {
                         </li>
                         <li>
                             <button className="sub-menu-button" onClick={handleSubMenu5Toggle}>
-                                Graph
+                                Search
                             </button>
                             <ul className={`sub-menu ${isSubMenu5Open ? 'open' : ''}`}>
-                                <li>BFS</li>
-                                <li>DFS</li>
+                                <li><Link to="/BinarySearch">Binary Search</Link></li>
+                                <li><Link to="/LinearSearch">Linear Search</Link></li>
                             </ul>
                         </li>
                     </ul>
