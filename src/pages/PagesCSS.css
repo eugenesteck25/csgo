@@ -1,82 +1,120 @@
-.CodeView{
-    height: 300px;
-    width: 725px;
-    background-color: #282c34;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    left: 15%;
-    bottom: 10%;
-    border-radius: 20px;
-  }
-  .description{
-    height: 300px;
-    width: 725px;
-    background-color: #282c34;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    left: 58.5%;
-    bottom: 10%;
-    border-radius: 20px;
-  }
-  .container{
-    height: 500px;
-    width: 1500px;
-    position: absolute;
-    top: 2%;
-    left: 15%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border: 1px;
-    border-radius: 20px;
-    /*background-color: #282c34;*/
-  }
-  
-  .bars_container{
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .bar{
-    width: 10px;
-    background-color: aqua;
-    margin: 0 2px;
-    border-radius: 2px;
-  }
-  body{
-    background-color: #ffffff;
-  }
-  .buttons_container > button, select{
-    width: 200px;
-    height: 30px;
-    background-color: #677685;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-    transition:  0.2s ease-in-out;
-  }
-  
-  button:hover{
-    background-color: #56697b;
-  }
-  
-  .StackedList{
-    position: absolute;
-    right: 800px;
-    border: 1px dotted #f00;
-  }
+.CodeView {
+  height: 300px;
+  width: 725px;
+  background-color: #282c34;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 15%;
+  bottom: 10%;
+  border-radius: 20px;
+}
 
-  .AVLTree{
-    position: absolute;
-    right: 800px;
-    border: 1px dotted #f00;
-  }
+.description {
+  height: 300px;
+  width: 725px;
+  background-color: #282c34;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 58.5%;
+  bottom: 10%;
+  border-radius: 20px;
+}
 
+.container {
+  height: 500px;
+  width: 1500px;
+  position: absolute;
+  top: 2%;
+  left: 15%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px;
+  border-radius: 20px;
+  /*background-color: #282c34;*/
+}
+
+.bars_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.bar {
+  width: 10px;
+  background-color: aqua;
+  margin: 0 2px;
+  border-radius: 2px;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.buttons_container>button,
+select {
+  width: 200px;
+  height: 30px;
+  background-color: #677685;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #56697b;
+}
+
+.StackedList {
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  position: absolute;
+  left: 40%;
+  border: 1px dotted #f00;
+  height: 550px;
+  width: 650px;
+  margin: auto;
+}
+
+.AVLTree {
+  position: absolute;
+  right: 800px;
+  border: 1px dotted #f00;
+}
+
+.BSA-block {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  background-color: #282c34;
+  height: 500px;
+  width: 700px;
+  border-radius: 20px;
+
+}
+
+.LSA-block {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  background-color: #282c34;
+  height: 500px;
+  width: 700px;
+  border-radius: 20px;
+
+}

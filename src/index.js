@@ -13,6 +13,8 @@ import QueueList from './pages/QueueList';
 import BST from './pages/BST';
 import AVLTree from './pages/AVLTree';
 import Sorting from './pages/Sorting';
+import BinarySearch from './pages/BinarySearch';
+import LinearSearch from './pages/LinearSearch';
 
 
 
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
   {
     path: "AVLTree",
     element: <AVLTree />
+  },
+  {
+    path: "BinarySearch",
+    element: <BinarySearch />
+  },
+  {
+    path: "LinearSearch",
+    element: <LinearSearch />
   },
 
 
