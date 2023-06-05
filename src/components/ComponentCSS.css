@@ -1,18 +1,74 @@
 /* Homepage CSS*/
 body {
-    position: relative;
-    height: 100%;
-    min-height: 100vh;
-    background: linear-gradient(to right, red 0%, yellow 50%, blue 100%);
+  background-image: url("Images/gradientBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10%;
 }
-.buttonplace{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+.landingContainer{
+  justify-content: center;
+  align-items:center;
 }
-.go-to{
-    background-color: aqua;
+
+.logo {
+  width: 200px; /* Adjust the width of the logo as needed */
+  height: 200px; /* Adjust the height of the logo as needed */
+  padding-top: 10%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  text-align: center;
+  gap: 30px;
+}
+
+.button {
+  display: inline-flex;
+  padding: 10px 20px;
+  background-color: #3F62FE;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px; 
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button img {
+  margin-left: 5px;
+  height: 20px; /* Adjust the height of the image as needed */
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  color: #3F62FE;
+}
+
+.visDescription {
+  margin-top: 5%;
+  display: flex;
+  width: 60%;
+  height: auto;
+  transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.visDescription:hover {
+  transform: scale(1.1);
 }
 
 /* SideMenu CSS */
