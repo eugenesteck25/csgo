@@ -11,29 +11,31 @@ import stack from './Images/stack.png';
 function Homepage() {
   return (
     <div className='landingContainer'>
-      <img src={csgo} className="logo" alt="Logo" />
-
+      <div className="logo-container">
+        <img src={csgo} alt='csgologo' className='logo' />
+      </div>
       <h1> Data Structure Visualizer</h1>
 
       <div className="button-container">
         <a href="/Visualiser">
           <button className="button">
             DSA Simulation
-            <img src={arrowCircle} alt="Image" />
+            <img src={arrowCircle} alt='arrowcircle' />
           </button>
         </a>
 
         <button className="button">
           Code Visualizer
-          <img src={arrowCircle} alt="Image" />
+          <img src={arrowCircle} alt='arrowcircle' />
         </button>
       </div>
-
-      <img src={sorting} className="visDescription" />
-      <img src={Searching} className="visDescription" />
-      <img src={array} className="visDescription" />
-      <img src={queque} className="visDescription" />
-      <img src={stack} className="visDescription" />
+      <div className='image-container'>
+        <img src={sorting} alt="visDescription" className='visDescription' />
+        <img src={Searching} alt="visDescription" className='visDescription' />
+        <img src={array} alt="visDescription" className='visDescription' />
+        <img src={queque} alt="visDescription" className='visDescription' />
+        <img src={stack} alt="visDescription" className='visDescription' />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ComponentCSS.css';
 import { Link } from 'react-router-dom';
+import csgo from './Images/csgo.png';
 
 const SideBar = () => {
     const [SideBar, setIsSidebarOpen] = useState(true);
@@ -37,7 +38,10 @@ const SideBar = () => {
     return (
         <div className={`sidebar ${SideBar ? 'open' : ''}`}>
             <div className="sidebar-header" >
-                <h3><Link to='/csgo'>CS GO!</Link></h3>
+                <Link to='/csgo'>
+                    <img src={csgo} alt='csgologo' height='150px' width='150px' />
+                </Link>
+
                 <button className="toggle-button" onClick={handleSidebarToggle}>
                     ☰
                 </button>
