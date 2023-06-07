@@ -118,3 +118,49 @@ button:hover {
   border-radius: 20px;
 
 }
+
+/* CodeCompiler */
+.Codecompiler {
+  position: absolute;
+  display: inline-flex;
+  left: 15%;
+}
+
+.compiler-input {
+  border: 1px dotted;
+  width: 700px;
+  height: 900px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.compiler-output {
+  border: 1px dotted;
+  background-color: white;
+  width: 700px;
+  height: 900px;
+  overflow-y: scroll;
+  margin-left: 10%;
+}
+
+.compiler-textarea {
+  width: 700px;
+  height: 900px;
+}
+
+.compiler-button {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 30px;
+}
+
+.compiler-button-output {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 30px;
+  margin-left: 10%;
+}

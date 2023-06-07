@@ -23,11 +23,12 @@ function Homepage() {
             <img src={arrowCircle} alt='arrowcircle' />
           </button>
         </a>
-
-        <button className="button">
-          Code Visualizer
-          <img src={arrowCircle} alt='arrowcircle' />
-        </button>
+        <a href="/Compiler">
+          <button className="button" >
+            Code Visualizer
+            <img src={arrowCircle} alt='arrowcircle' />
+          </button>
+        </a>
       </div>
       <div className='image-container'>
         <img src={sorting} alt="visDescription" className='visDescription' />

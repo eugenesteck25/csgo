@@ -8,13 +8,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import StackedList from './pages/StackedList';
 import QueueList from './pages/QueueList';
-import BST from './pages/BST';
-import AVLTree from './pages/AVLTree';
 import Sorting from './pages/Sorting';
 import BinarySearch from './pages/BinarySearch';
 import LinearSearch from './pages/LinearSearch';
+import CodeCompiler from './pages/CodeCompiler';
 
 
 
@@ -40,20 +40,16 @@ const router = createBrowserRouter([
     element: <QueueList />
   },
   {
-    path: "BST",
-    element: <BST />
-  },
-  {
-    path: "AVLTree",
-    element: <AVLTree />
-  },
-  {
     path: "BinarySearch",
     element: <BinarySearch />
   },
   {
     path: "LinearSearch",
     element: <LinearSearch />
+  },
+  {
+    path: "Compiler",
+    element: <CodeCompiler />
   },
 
 
