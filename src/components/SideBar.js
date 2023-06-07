@@ -51,12 +51,15 @@ const SideBar = () => {
                     <ul>
                         <li>
                             <button className="sub-menu-button" onClick={handleSubMenu1Toggle}>
-                                Linked List
+                                <Link to="/StackedList">Stack</Link>
                             </button>
-                            <ul className={`sub-menu ${isSubMenu1Open ? 'open' : ''}`}>
-                                <li><Link to="/StackedList">Stack</Link></li>
-                                <li><Link to="/QueueList">Queue</Link></li>
-                            </ul>
+
+
+                        </li>
+                        <li>
+                            <button className="sub-menu-button" onClick={handleSubMenu1Toggle}>
+                                <Link to="/QueueList">Queue</Link>
+                            </button>
                         </li>
                         <li>
                             <button className="sub-menu-button" onClick={handleSubMenu2Toggle}>
@@ -74,22 +77,9 @@ const SideBar = () => {
 
                         </li>
                         <li>
-                            <button className="sub-menu-button" onClick={handleSubMenu4Toggle}>
-                                Tree Traversal
-                            </button>
-                            <ul className={`sub-menu ${isSubMenu4Open ? 'open' : ''}`}>
-                                <li><Link to="/BST">BST</Link></li>
-                                <li><Link to="/AVLTree">AVL Tree</Link></li>
-                            </ul>
-                        </li>
-                        <li>
                             <button className="sub-menu-button" onClick={handleSubMenu5Toggle}>
-                                Search
+                                <Link to="/Compiler">Code Visualiser</Link>
                             </button>
-                            <ul className={`sub-menu ${isSubMenu5Open ? 'open' : ''}`}>
-                                <li><Link to="/BinarySearch">Binary Search</Link></li>
-                                <li><Link to="/LinearSearch">Linear Search</Link></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
