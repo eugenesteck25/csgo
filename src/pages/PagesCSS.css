@@ -140,7 +140,7 @@ button:hover {
   border: 1px dotted;
   background-color: white;
   width: 700px;
-  height: 900px;
+  height: 450px;
   overflow-y: scroll;
   margin-left: 10%;
 }
@@ -148,6 +148,7 @@ button:hover {
 .compiler-textarea {
   width: 700px;
   height: 900px;
+  overflow-y: scroll;
 }
 
 .compiler-button {
@@ -163,4 +164,13 @@ button:hover {
   display: flex;
   height: 30px;
   margin-left: 10%;
+}
+
+.compiler-visualization {
+  border: 1px dotted;
+  background-color: white;
+  width: 700px;
+  height: 450px;
+  margin-left: 10%;
+  overflow-y: scroll;
 }
