@@ -72,8 +72,9 @@ const CodeCompiler = () => {
                     </div>
                 </div>
                 <div>
+
                     <div className="compiler-output">
-                        <pre>{consoleOutput}</pre>
+                        <pre>{consoleOutput}</pre> {/* Display console output in a <pre> element */}
                         <pre>{error}</pre>
                         <pre>{timeComplexity}</pre>
                     </div>
@@ -81,7 +82,11 @@ const CodeCompiler = () => {
                     <div className="compiler-button-output">
                         <button onClick={clearOutput}>Clear Output</button>
                     </div>
+                    <div className="compiler-visualization">
+                        <pre>{code}</pre> {/* Display code visualization */}
+                    </div>
                 </div>
+
             </div>
         </div>
     );
