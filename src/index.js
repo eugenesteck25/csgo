@@ -15,6 +15,12 @@ import Sorting from './pages/Sorting';
 import BinarySearch from './pages/BinarySearch';
 import LinearSearch from './pages/LinearSearch';
 import CodeCompiler from './pages/CodeCompiler';
+import MergeSort from './pages/MergeSort';
+import QuickSort from './pages/QuickSort';
+import BubbleSort from './pages/BubbleSort';
+import InsertionSort from './pages/InsertionSort';
+import SelectionSort from './pages/SelectionSort';
+
 
 
 
@@ -46,6 +52,26 @@ const router = createBrowserRouter([
   {
     path: "LinearSearch",
     element: <LinearSearch />
+  },
+  {
+    path: "MergeSort",
+    element: <MergeSort />
+  },
+  {
+    path: "BubbleSort",
+    element: <BubbleSort />
+  },
+  {
+    path: "InsertionSort",
+    element: <InsertionSort />
+  },
+  {
+    path: "SelectionSort",
+    element: <SelectionSort />
+  },
+  {
+    path: "QuickSort",
+    element: <QuickSort />
   },
   {
     path: "Compiler",

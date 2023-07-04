@@ -72,9 +72,15 @@ const SideBar = () => {
                         </li>
                         <li>
                             <button className="sub-menu-button" onClick={handleSubMenu3Toggle}>
-                                <Link to="/Sorting">Sorting</Link>
+                                Sorting
                             </button>
-
+                            <ul className={`sub-menu ${isSubMenu3Open ? 'open' : ''}`}>
+                                <li><Link to="/MergeSort">Merge Sort</Link></li>
+                                <li><Link to="/QuickSort">Quick Sort</Link></li>
+                                <li><Link to="/BubbleSort">Bubble Sort</Link></li>
+                                <li><Link to="/InsertionSort">Insertion Sort</Link></li>
+                                <li><Link to="/SelectionSort">Selection Sort</Link></li>
+                            </ul>
                         </li>
                         <li>
                             <button className="sub-menu-button" onClick={handleSubMenu5Toggle}>
