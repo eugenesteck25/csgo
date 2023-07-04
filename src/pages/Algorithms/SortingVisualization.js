@@ -275,6 +275,9 @@ export default class SortingVisualization extends React.Component {
           const valueElement1 = bars[barOneIdx].querySelector('.value');
           const valueElement2 = bars[barTwoIdx].querySelector('.value');
 
+          barOneStyle.backgroundColor = SECONDARY_COLOR;
+          barTwoStyle.backgroundColor = SECONDARY_COLOR;
+
           barOneStyle.transition = `height ${animationSpeed}ms ease-in-out`;
           barTwoStyle.transition = `height ${animationSpeed}ms ease-in-out`;
 
@@ -283,7 +286,13 @@ export default class SortingVisualization extends React.Component {
 
           barOneStyle.height = `${value2}px`;
           barTwoStyle.height = `${value1}px`;
+
+          setTimeout(() => {
+            barOneStyle.backgroundColor = PRIMARY_COLOR;
+            barTwoStyle.backgroundColor = PRIMARY_COLOR;
+          }, animationSpeed);
         }
+
       }, i * animationSpeed * animationSpeedFactor);
 
       setTimeout(() => {
